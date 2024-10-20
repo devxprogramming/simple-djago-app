@@ -32,8 +32,8 @@ print('SECRET_KEY', SECRET_KEY)
 DEBUG = os.environ.get('DEBUG', False)
 print('DEBUG', DEBUG)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
-print('ALLOWED_HOSTS', ALLOWED_HOSTS)
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+print(ALLOWED_HOSTS)
 
 
 # Application definition
