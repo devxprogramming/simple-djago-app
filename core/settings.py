@@ -32,7 +32,7 @@ print('SECRET_KEY', SECRET_KEY)
 DEBUG = os.environ.get('DEBUG', False)
 print('DEBUG', DEBUG)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-qrl-code.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'simple-djago-app.onrender.com']
 
 
 # Application definition
