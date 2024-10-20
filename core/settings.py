@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(dotenv_path='env/.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +32,7 @@ print('SECRET_KEY', SECRET_KEY)
 DEBUG = os.environ.get('DEBUG', False)
 print('DEBUG', DEBUG)
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 print('ALLOWED_HOSTS', ALLOWED_HOSTS)
 
 
