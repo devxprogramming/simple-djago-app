@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^axwv0ivtea_23+^al0p0j4=(q)^!n9bg$8br&ub%0ix%02#d7'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+print('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
+print('DEBUG', DEBUG)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
+print('ALLOWED_HOSTS', ALLOWED_HOSTS)
 
 
 # Application definition
@@ -92,6 +99,10 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
 }
+
+DATABASES["default"] = dj_database_url.parse("postgresql://django_qrl_code_user:0qeF61NPASVO5nHfxLp9npzcSiBD6aTN@dpg-csa8obrqf0us739r83qg-a.oregon-postgres.render.com/django_qrl_code")
+
+# postgresql://django_qrl_code_user:0qeF61NPASVO5nHfxLp9npzcSiBD6aTN@dpg-csa8obrqf0us739r83qg-a.oregon-postgres.render.com/django_qrl_code
 
 
 # Password validation
